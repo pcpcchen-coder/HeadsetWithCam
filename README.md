@@ -4,7 +4,7 @@
 
 本專案旨在建立可自行擴充的穿戴式攝影控制系統：以智慧戒指輸入手勢，由自製 iPhone App 接收 BLE 事件，向攝影耳機下達拍照／錄影命令，再將媒體檔案同步至 Mac mini 供 AI Agent 進行分析。
 
-> **截至 2026-10-15：Research / Pre-purchase 階段。** 本 Repo 保存技術調查、產品線索及驗證計畫；**尚未取得 E900 實機並驗證 BLE 控制、錄影或 Wi-Fi API 相容性**。不要將 E09 眼鏡協定視為 E900 已支援的介面。
+> **截至 2026-10-15：Research / Ordered — Awaiting delivery 階段。** 本 Repo 保存技術調查、產品線索及驗證計畫；**E900 已下單（2026-10-15 使用者回報）、尚未到貨，也未驗證 BLE 控制、錄影或 Wi-Fi API 相容性**。不要將 E09 眼鏡協定視為 E900 已支援的介面。
 
 ## 預計操作流程
 
@@ -33,6 +33,11 @@ QRing R08 --BLE notify--> iPhone RingCamBridge --BLE command?--> E900
 | [系統架構與驗證計畫](docs/ARCHITECTURE_AND_TEST_PLAN.md) | iOS Bridge 設計、階段性驗收、失敗判準 |
 | [AI Agent 接手指引](docs/AGENT_HANDOFF.md) | 下一位 Coding Agent 的開發原則、交付格式與 Prompt |
 
+## 採購紀錄
+
+- **2026-10-15：已下單 E900 系列攝影耳機，等待到貨**（使用者回報，實際 SKU、成交價、訂單編號和預計到貨日期待補）。
+- **GlassX** 為賣家回覆的配套 App；尚未進行實機配對。
+
 ## 最優先待確認
 
 - [ ] 收到的產品實際型號、硬體批次、韌體版本，以及實機是否使用賣家確認的 GlassX App（賣家於 2026-10-15 回覆 GlassX；實機尚未驗證）。
@@ -49,4 +54,4 @@ QRing R08 --BLE notify--> iPhone RingCamBridge --BLE command?--> E900
 - 上游專案有不同授權，**參考互通事實不等於可直接複製受授權保護的程式碼**，詳見協定研究文件。
 - 攝影錄音遵守當地法律並尊重他人隱私；使用可見的拍攝指示與明確的啟停操作。
 
-研究歸檔日期：**2026-10-14（Asia/Taipei）**；賣家 App 回覆更新：**2026-10-15**。
+研究歸檔日期：**2026-10-14（Asia/Taipei）**；賣家 App 回覆與已下單狀態更新：**2026-10-15**。
