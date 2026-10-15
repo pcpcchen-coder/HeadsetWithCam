@@ -1,14 +1,14 @@
 # AI Coding Agent 接手指引（HeadsetWithCam）
 
-日期：2026-10-15（GlassX 回覆更新）｜適用對象：Claude Code / Codex / 其他 Coding Agent
+日期：2026-10-15（GlassX 與採購狀態更新）｜適用對象：Claude Code / Codex / 其他 Coding Agent
 
 ## 初始狀態與可信度
 
 - 此 Repo 於 2026-10-14 以調查文件初始化，**沒有已實作／已測的 iOS App**。
 - 真正目標：**R08 觸控 → iPhone 自製中繼 → E900 啟動／停止本機錄影 → 媒體下載 → Mac mini AI 分析**。
 - 請先看 [E900 產品研究](E900_RESEARCH_2026-10-14.md)、[協定線索](PROTOCOL_RESEARCH.md) 與 [架構及驗收標準](ARCHITECTURE_AND_TEST_PLAN.md)。
-- **賣家已在 2026-10-15 確認配套 App 名稱 GlassX（實機待核對）。E900 協定仍未知**。E09／EYEVUE 的公開逆向結果只是比較對象，不得當作 E900 真實 API。
-- 不得虛構使用者已購入、配對成功、Swift 已編譯、前景／背景成功率等狀態。
+- **2026-10-15 使用者回報 E900 已下單、等待到貨；賣家確認配套 App 名稱 GlassX（實機待核對）。E900 協定仍未知**。E09／EYEVUE 的公開逆向結果只是比較對象，不得當作 E900 真實 API。
+- **可以記錄「已下單」；不得虛構已到貨、確認成交價、配對成功、Swift 已編譯、前景／背景成功率等狀態。**
 
 ## 開發順序（證據優先）
 
