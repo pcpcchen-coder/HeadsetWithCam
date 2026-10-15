@@ -1,18 +1,18 @@
 # AI Coding Agent 接手指引（HeadsetWithCam）
 
-日期：2026-10-14｜適用對象：Claude Code / Codex / 其他 Coding Agent
+日期：2026-10-15（GlassX 回覆更新）｜適用對象：Claude Code / Codex / 其他 Coding Agent
 
 ## 初始狀態與可信度
 
 - 此 Repo 於 2026-10-14 以調查文件初始化，**沒有已實作／已測的 iOS App**。
 - 真正目標：**R08 觸控 → iPhone 自製中繼 → E900 啟動／停止本機錄影 → 媒體下載 → Mac mini AI 分析**。
 - 請先看 [E900 產品研究](E900_RESEARCH_2026-10-14.md)、[協定線索](PROTOCOL_RESEARCH.md) 與 [架構及驗收標準](ARCHITECTURE_AND_TEST_PLAN.md)。
-- **E900 協定仍未知**。E09／EYEVUE 的公開逆向結果只是比較對象，不得當作 E900 真實 API。
+- **賣家已在 2026-10-15 確認配套 App 名稱 GlassX（實機待核對）。E900 協定仍未知**。E09／EYEVUE 的公開逆向結果只是比較對象，不得當作 E900 真實 API。
 - 不得虛構使用者已購入、配對成功、Swift 已編譯、前景／背景成功率等狀態。
 
 ## 開發順序（證據優先）
 
-1. **Inventory**：先確認設備實際型號、原廠 App、R08／E900 GATT Service 與 FW/HW 版本，記錄證據。
+1. **Inventory**：賣家已確認 GlassX；到貨後核對實際型號、GlassX App ID／版本、R08／E900 GATT Service 與 FW/HW 版本，記錄證據。先操作原廠 GlassX，確認是否真的有遠端開始／停止錄影及 Wi-Fi 下載流程。
 2. **R08 decoder**：依 Halo-Ring 文件獨立實作 R08 packet parser 和 gesture recognizer，建立 byte fixture 與 unit tests；無硬體時以 Mock 驗證。
 3. **Camera transport interface**：定義 `CameraDriver` protocol，實作 `MockCameraDriver`；對 E900 只提供安全的 BLE GATT 偵測程式，不可預設支援 E09 寫入指令。
 4. **Verified command implementation**：只有在 E900 真機經協定及錄影檔驗證後，才為 camera adapter 啟用 live write path。
