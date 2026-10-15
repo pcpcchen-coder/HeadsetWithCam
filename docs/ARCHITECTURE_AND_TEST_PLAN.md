@@ -1,6 +1,6 @@
 # 系統架構與實機驗證計畫
 
-- 更新日期：2026-10-14
+- 更新日期：2026-10-15（賣家確認 GlassX，實機仍未驗證）
 - 目標：**QRing R08 觸控 → iPhone Bridge → E900 開始／停止錄影 → 影片經手機同步到 Mac mini AI Agent**
 - 狀態：概念與工程驗證方案；**尚未建置 App，也沒有實機測試結果**。
 
@@ -25,6 +25,13 @@
 ```
 
 核心設計：讓手機是雙 BLE Central 與命令路由器；E900 本機錄影，媒體非同步匯入。**E900 BLE 與 Wi-Fi 是否開放要用實測決定**，在此之前 camera driver 只提供 Mock 行為。
+
+## 1.1 GlassX 確認後的前置驗證
+
+- **賣家 2026-10-15 確認 GlassX 為搭配 App**；App Store 商品說明有設備連線、相簿及錄影時間設定描述，但仍不能證明有遠端 Start/Stop API。
+- 最先測試 GlassX 前景操作能否遠端啟動／停止攝影、是否產生檔案，並記錄 App 版本及設備韌體。
+- 若 GlassX 可遠端控制，使用 Mac mini 獨立監測 BLE Service / Characteristic 並與 E09 UUID 做唯讀對照；不要假設 GlassX=EYEVUE 或沿用 E09 payload。
+- Wi-Fi SSID、連線權限、下載流程須以自己實機為準；iOS 原廠 App 與自製 App 不可預設同時擁有同一 BLE Central 連線。
 
 ## 2. iOS App 模組
 
@@ -85,7 +92,7 @@ Disconnected -> Idle -> Starting -> Recording -> Stopping -> Saved
 | G5 媒體匯入 | App 可取回原始檔案並驗證完整性 | 20 個檔案校驗、斷線／復原及重複匯入 |
 | G6 AI Agent | 影片可同步 Mac mini，AI 分析結果可查原始片段 | 可追溯 ID、上傳重試、時間戳、OCR／摘要輸出 |
 
-**若 G2 失敗**：先確認原廠 App 是否支援遠端控制，再比較初始化、加密／配對與 GATT。不要以 E09 相同 SoC 為理由繼續硬編固定指令；應停在協定研究或選擇其它具明確 SDK 的攝影設備。
+**若 G2 失敗**：先確認賣家指定的 GlassX 原廠 App 是否支援遠端控制，再比較初始化、加密／配對與 GATT。不要以 E09 相同 SoC 為理由繼續硬編固定指令；應停在協定研究或選擇其它具明確 SDK 的攝影設備。
 
 ## 6. 風險與替代路線
 
